@@ -4,11 +4,21 @@ class Server {
   constructor () {
     this.app = express()
     this.PORT = process.env.PORT || 8080
+
+    // Middlewares
+    this.middlewares()
+
+    // Routes
     this.routes()
   }
 
+  middlewares () {
+    // Public directory
+    this.app.use(express.static('public'))
+  }
+
   routes () {
-    this.app.get('/', (req, res) => {
+    this.app.get('/api', (req, res) => {
       res.send('Hola express')
     })
   }
