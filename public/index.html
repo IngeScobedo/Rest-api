@@ -11,8 +11,13 @@
 </head>
 
 <body>
-    <div class="bg-indigo-500 w-full h-screen flex justify-center items-center">
+    <div class="bg-indigo-500 w-full h-screen flex flex-col justify-center items-center">
         <h1>Socket client</h1>
+        <p>
+            Serve status:
+            <span id="lblOnline" class="text-bold text-xl text-green-500 hidden">Online</span>
+            <span id="lblOffline" class="text-bold text-xl text-red-500">Offline</span>
+        </p>
     </div>
     <script src="./socket.io/socket.io.js"></script>
     <script src="./js/socket-client.js"></script>
