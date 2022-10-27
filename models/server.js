@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const { socketController } = require('../sockets/socket.controller')
 
 // const corsOptions = require('../config/corsConfig')
 
@@ -25,7 +26,7 @@ class Server {
   }
 
   middlewares () {
-    // CORS and config
+    // CORS
     // this.app.use(cors(corsOptions))
     this.app.use(cors())
 
@@ -38,13 +39,7 @@ class Server {
   }
 
   sockets () {
-    this.io.on('connection', socket => {
-      console.log('Cliente conectado')
-      socket.on('event', data => { })
-      socket.on('disconnect', () => {
-        console.log('cliente desconectado')
-      })
-    })
+    this.io.on('connection', socketController)
   }
 
   start () {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -10,14 +10,31 @@
     <link rel="stylesheet" href="tailwind.css">
 </head>
 
-<body>
-    <div class="bg-indigo-500 w-full h-screen flex flex-col justify-center items-center">
-        <h1>Socket client</h1>
-        <p>
-            Serve status:
+<body class="bg-indigo-500 w-full h-screen flex flex-col">
+    <nav class="w-full h-32 flex justify-between items-center px-10">
+        <h1 class="text-white font-bold">Socket Client</h1>
+        <p class="text-white font-bold">
+            Server status:
             <span id="lblOnline" class="text-bold text-xl text-green-500 hidden">Online</span>
             <span id="lblOffline" class="text-bold text-xl text-red-500">Offline</span>
         </p>
+    </nav>
+    <div class="h-full w-full flex justify-center items-center">
+        <div class="w-full max-w-[550px] flex flex-col gap-4">
+            <div class="flex flex-col w-full gap-1">
+                <label for="message" class="text-sm text-white font-bold">
+                    Mensaje
+                </label>
+                <input type="text" id="messageInput" class="w-full h-[44px] rounded-md border border-blue-300 text-sm px-2 focus:outline-transparent active:outline-transparent">
+            </div>
+            <div class="w-full flex justify-center">
+                <button type="button"
+                    id="sendBtn"
+                    class="w-[85px] h-[44px] rounded-md border border-white text-white font-bold text-center">
+                    Enviar
+                </button>
+            </div>
+        </div>
     </div>
     <script src="./socket.io/socket.io.js"></script>
     <script src="./js/socket-client.js"></script>
