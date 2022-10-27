@@ -8,7 +8,7 @@ class Server {
     this.app = express()
     this.PORT = process.env.PORT || 8080
     this.paths = {
-      users: '/api/users'
+      // users: '/api/users'
     }
 
     // Middlewares
@@ -19,19 +19,16 @@ class Server {
   }
 
   middlewares () {
-    // Public directory
-    this.app.use(express.static('public'))
-
     // CORS and config
     // this.app.use(cors(corsOptions))
     this.app.use(cors())
 
-    // JSON Parser
-    this.app.use(express.json())
+    // Public directory
+    this.app.use(express.static('public'))
   }
 
   routes () {
-    this.app.use(this.paths.users, require('../routes/user.routes'))
+    // this.app.use(this.paths.users, require('../routes/user.routes'))
   }
 
   start () {
