@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "tailwind:watch": "npx tailwindcss -i ./public/tailwind.css -o ./public/index.css --watch",
+    "tailwind:build": "npx tailwindcss -o ./public/index.css --minify"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "eslint-plugin-promise": "^6.0.0",
+    "tailwindcss": "^3.2.1"
   }
 }
