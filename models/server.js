@@ -6,6 +6,9 @@ const cors = require('cors')
 class Server {
   constructor () {
     this.app = express()
+    this.server = require('http').createServer(this.app)
+    this.io = require('socket.io')(this.server)
+
     this.PORT = process.env.PORT || 8080
     this.paths = {
       // users: '/api/users'
@@ -16,6 +19,9 @@ class Server {
 
     // Routes
     this.routes()
+
+    // Sockets
+    this.sockets()
   }
 
   middlewares () {
@@ -31,8 +37,18 @@ class Server {
     // this.app.use(this.paths.users, require('../routes/user.routes'))
   }
 
+  sockets () {
+    this.io.on('connection', socket => {
+      console.log('Cliente conectado')
+      socket.on('event', data => { })
+      socket.on('disconnect', () => {
+        console.log('cliente desconectado')
+      })
+    })
+  }
+
   start () {
-    this.app.listen(this.PORT, () => {
+    this.server.listen(this.PORT, () => {
       console.log(`Servidor corriendo en el puerto ${this.PORT}`)
     })
   }
