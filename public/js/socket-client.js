@@ -15,10 +15,6 @@ socket.on('connect', () => {
   lblOnline.classList.toggle('hidden')
 })
 
-socket.on('send-message', data => {
-  console.log('Nuevo mensaje', data)
-})
-
 socket.on('disconnect', () => {
   lblOffline.classList.toggle('hidden')
   lblOnline.classList.toggle('hidden')
