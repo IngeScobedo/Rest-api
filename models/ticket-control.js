@@ -49,7 +49,7 @@ class TicketControl {
     this.tickets.push(ticket)
 
     this.saveDb()
-    return `Ticket ${ticket.ticketId}`
+    return ticket.ticketId
   }
 
   attend (desktop) {
@@ -57,7 +57,7 @@ class TicketControl {
       return null
     }
     const ticket = this.tickets.shift()
-    ticket.dektop = desktop
+    ticket.desktop = desktop
 
     this.lastTickets.unshift(ticket)
 

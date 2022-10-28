@@ -12,14 +12,15 @@
 
 <body>
     <div class="w-full h-screen bg-indigo-500 flex flex-col justify-around items-center">
-        <h1 class="text-7xl font-bold text-white">
+        <h1 id="ticket-status" class="text-7xl font-bold text-white">
             Cargando...
         </h1>
-        <button class="primary w-auto px-2">
+        <button id="handler-generate-btn" class="primary w-auto px-2">
             Generar nuevo ticket
         </button>
     </div>
-    <!-- <script src="./js/nuevo-ticket.js"></script> -->
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="./js/new-ticket.js"></script>
 </body>
 
 </html>
