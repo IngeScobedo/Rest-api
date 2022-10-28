@@ -26,12 +26,7 @@ const socket = io()
 
 // Socket Listeners
 socket.on('pending-tickets', tickets => {
-  console.log('🚀 ~ file: desktop.js ~ line 29 ~ tickets', tickets)
   lblPendingTickets.innerText = tickets
-})
-
-socket.on('send-message', data => {
-  console.log('Nuevo mensaje', data)
 })
 
 socket.on('disconnect', () => {

@@ -18,15 +18,10 @@ const lblEscritorio4 = $('#lblEscritorio4')
 const socket = io()
 
 // Socket Listeners
-socket.on('connect', () => {
-
-})
-
 socket.on('current-state', payload => {
   const audio = new Audio('./audio/new-ticket.mp3')
   audio.play()
   const [ticket1, ticket2, ticket3, ticket4] = payload
-  console.log(ticket1)
 
   if (ticket1) {
     lblTicket1.innerText = `Ticket ${ticket1.ticketId}`
@@ -48,14 +43,3 @@ socket.on('current-state', payload => {
     lblEscritorio4.innerText = `Escritorio ${ticket4.desktop}`
   }
 })
-
-socket.on('disconnect', () => {
-
-})
-
-// Event Listeners
-// handlerGenerateBtn.addEventListener('click', () => {
-//   socket.emit('next-ticket', null, (ticket) => {
-//     ticketStatus.innerText = `Ticket ${ticket}`
-//   })
-// })

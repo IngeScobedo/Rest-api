@@ -25,7 +25,6 @@ const socketController = (socket) => {
 
     const ticket = ticketControl.attend(desktop)
     socket.emit('pending-tickets', ticketControl.tickets.length)
-    console.log('🚀 ~ file: socket.controller.js ~ line 28 ~ socket.on ~ length', ticketControl.tickets.length)
 
     socket.broadcast.emit('current-state', ticketControl.lastTickets)
     if (!ticket) {
